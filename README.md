@@ -68,4 +68,22 @@ Through this website, a business can process orders, accept payments, manage shi
 
  ![payment requests](https://user-images.githubusercontent.com/90375582/186631414-198c3e5f-ff4d-4e00-9924-ece8237a3a28.png)
 
+ <h2>Prerequisites </h2>
+ <ul>
+ <li>Node .js >= 16.14.2</li>
+  <li>npm >= 8.17.0</li>
+ <li>MongoDB >= 5.0.7</li>
+ <li>Node</li>
+ <li>Node</li>
+
+ </ul>
  
+  <h2>Getting Stated </h2>
+  <h3>Via cloning the repository</h3>
+  
+     //Install dependencies <br>
+     npm install
+     
+     //Run project on port 3000 <br>
+     npm start
+
