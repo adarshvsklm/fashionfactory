@@ -1,13 +1,14 @@
 // const { get } = require('express/lib/response');
 const db = require('../config/connection')
 const bcrypt = require('bcrypt');
-const { resolve } = require('express-hbs/lib/resolver');
-const { reject } = require('bcrypt/promises');
+// const { resolve } = require('express-hbs/lib/resolver');
+// const { reject } = require('bcrypt/promises');
 const session = require('express-session');
 const collection = require('../config/collection');
 const { ObjectId } = require('mongodb');
 const sellerHelpers = require('./seller-helpers')
 const cartHelpers = require('./cart-helpers')
+require('dotenv').config();
 
 const Razorpay = require('razorpay');
 const { products } = require('./seller-helpers');
@@ -573,8 +574,8 @@ module.exports = {
         })
     },
     search: (text) => {
-        console.log(text);
-        console.log(true);
+        // console.log(text);
+        // console.log(true);
         return new Promise(async (resolve, reject) => {
             // let result = await db.get().collection(collection.mainCollection).find({ 'products.brandName':{$regex:text}},{'products.brandName':1} ).toArray()
 
@@ -658,7 +659,7 @@ module.exports = {
     },
     filterProducts: (filter, gender, price, search) => {
         return new Promise(async (resolve, reject) => {
-            // console.log(filter,gender,price,search);
+            console.log(filter,gender,price,search);
 
             if (!search) {
 
@@ -681,12 +682,14 @@ module.exports = {
                     // console.log(result);
                     resolve(result)
                 } else {
+                    console.log('gender');
                     let result = await db.get().collection(collection.mainCollection)
+                    
                         // .find({ 'products.gender': gender }, { 'products.$': 1, _id: 0 }).toArray()
                         .aggregate([
 
                             {
-                                $match: { 'products.gender': gender, 'products.isActive': true }
+                                $match: { 'products.isActive': true }
                             },
 
                             {
@@ -698,6 +701,9 @@ module.exports = {
                             },
                             {
                                 $match: { 'products.price': { $lt: price } }
+                            },
+                            {
+                                $match: { 'products.gender': gender }
                             }
 
 
@@ -840,6 +846,7 @@ module.exports = {
                 {
                     arrayFilters: [{
                         'i.cart_id': ObjectId(cartId)
+                        
                     }]
                 }
             )

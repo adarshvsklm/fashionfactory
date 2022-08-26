@@ -21,9 +21,9 @@ router.get('/signup', user.signup)
 
 router.post('/signup', user.postSignup)
 
-router.get('/verification',user.session, user.verification)
+// router.get('/verification',user.session, user.verification)
 
-router.post('/verification',user.session, user.postVerification)      
+// router.post('/verification',user.session, user.postVerification)      
 
 router.get('/logout', user.logout)
 

@@ -1,8 +1,8 @@
-const { reject } = require('bcrypt/promises');
+// const { reject } = require('bcrypt/promises');
 const express = require('express');
 const session = require('express-session');
-const res = require('express/lib/response');
-const { render, response } = require('../app');
+// const res = require('express/lib/response');
+// const { render, response } = require('../app');
 const router = express.Router();
 const sellerhelpers = require('../helpers/seller-helpers')
 const seller = require('../middlewares/seller-middlewares')
@@ -77,9 +77,9 @@ module.exports = {
         let revenue = await sellerhelpers.revenue(req.session.seller._id)
         let seller = await sellerhelpers.sellerDetails(req.session.seller._id)
         revenue.balance = seller.totalEarnings - seller.claimed
-        let response=await sellerhelpers.DateValues(req.session.seller._id)
+        // let response=await sellerhelpers.DateValues(req.session.seller._id)
         // console.log(response);
-        res.render('sellers/dashboard', { seller:req.session.seller, revenue, seller ,response})
+        res.render('sellers/dashboard', { seller:req.session.seller, revenue, seller })
     },
     logout: (req, res) => {
         req.session.seller = null

@@ -5,7 +5,7 @@ const { reject } = require('bcrypt/promises');
 const collection = require('../config/collection');
 const res = require('express/lib/response');
 const { ObjectId } = require('mongodb');
-const { enabled } = require('../app');
+// const { enabled } = require('../app');
 
 
 module.exports = {
@@ -439,44 +439,44 @@ module.exports = {
 
         })
     },
-    DateValues: (sellerId) => {
-        return new Promise(async (resolve, reject) => {
-            let values = await db.get().collection(collection.mainCollection)
-                .findOne({ role: "admin", 'redeemRequests.sellerId': ObjectId(sellerId) }, {})
+    // DateValues: (sellerId) => {
+    //     return new Promise(async (resolve, reject) => {
+    //         let values = await db.get().collection(collection.mainCollection)
+    //             .findOne({ role: "admin", 'redeemRequests.sellerId': ObjectId(sellerId) }, {})
 
-            let today = new Date()
-            let d = today.getDate()
-            // console.log(today,a);
-            let days = [  d - 6, d - 5, d - 4, d - 3, d - 2, d - 1, d]
-            let data = values.redeemRequests
-            for (let i in data) {
-                if (data[i].paidOn) {
-                    data[i].paidOn = data[i].paidOn.getDate()
-                }
-            }
-            // console.log(data);
-            let count = 0, y = [], p = 0, price = []
-            for (let i in days) {
-                count = 0
-                p = 0
-                for (let j in data) {
-                    if (days[i] == data[j].paidOn) {
-                        count++
-                        p += data[j].amount
-                    }
+    //         let today = new Date()
+    //         let d = today.getDate()
+    //         // console.log(today,a);
+    //         let days = [  d - 6, d - 5, d - 4, d - 3, d - 2, d - 1, d]
+    //         let data = values.redeemRequests
+    //         for (let i in data) {
+    //             if (data[i].paidOn) {
+    //                 data[i].paidOn = data[i].paidOn.getDate()
+    //             }
+    //         }
+    //         // console.log(data);
+    //         let count = 0, y = [], p = 0, price = []
+    //         for (let i in days) {
+    //             count = 0
+    //             p = 0
+    //             for (let j in data) {
+    //                 if (days[i] == data[j].paidOn) {
+    //                     count++
+    //                     p += data[j].amount
+    //                 }
 
-                }
-                y.push(count)
-                price.push(p)
-            }
-            console.log(days, y, price);
-            let response = {
-                days,
-                price
-            }
-            resolve(response)
-        })
-    }
+    //             }
+    //             y.push(count)
+    //             price.push(p)
+    //         }
+    //         console.log(days, y, price);
+    //         let response = {
+    //             days,
+    //             price
+    //         }
+    //         resolve(response)
+    //     })
+    // }
 
 }
 

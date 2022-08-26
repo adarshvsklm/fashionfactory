@@ -1,5 +1,5 @@
 const express = require('express');
-const res = require('express/lib/response');
+// const res = require('express/lib/response');
 const { Db } = require('mongodb');
 const adminHelpers = require('../helpers/admin-helpers');
 const router = express.Router();
@@ -45,7 +45,7 @@ router.get('/seller/reject',admin.rejectSeller)
 
 router.get('/sellers/rejected/list',admin.rejectedList)
 
-router.get('/redeemRequests',admin.redeemRequests)
+router.get('/redeemRequests',admin.redeemRequest)
 
 router.get('/seller/payment',admin.sellerPayment)
 

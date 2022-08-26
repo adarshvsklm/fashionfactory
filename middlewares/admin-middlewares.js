@@ -1,7 +1,7 @@
 const express = require('express');
-const res = require('express/lib/response');
+// const res = require('express/lib/response');
 const { Db } = require('mongodb');
-const { response } = require('../app');
+// const { response } = require('../app');
 const adminHelpers = require('../helpers/admin-helpers');
 const router = express.Router();
 const sellerHelpers = require('../helpers/seller-helpers')
@@ -45,10 +45,17 @@ module.exports = {
     },
     dashboard: async (req, res) => {
         // if (req.session.admin) {
+            let i=true
+            if(i){
         let admin = await adminHelpers.adminDetails()
         let revenue=await adminHelpers.totalRevenue()
         let response=await adminHelpers.redeemRequests()
         res.render('admin/dashboard', { admin, admin: true ,revenue,count:response.count})
+            }else{
+                res.render('admin/dashboard', { admin: true })
+                
+            }
+        
         // } else {
         // res.redirect('/admin/login')
 
@@ -144,7 +151,7 @@ module.exports = {
             res.render('admin/rejectedSellersList', { admin: true, list })
         })
     },
-    redeemRequests: async (req, res) => {
+    redeemRequest: async (req, res) => {
         let response = await adminHelpers.redeemRequests()
         res.render('admin/redeemRequests', { admin: true, redeemRequests:response.redeemRequests ,count:response.count })
 

@@ -1,6 +1,6 @@
 var express = require('express');
 const session = require('express-session');
-const res = require('express/lib/response');
+// const res = require('express/lib/response');
 const router = express.Router();
 const sellerhelpers = require('../helpers/seller-helpers')
 const seller = require('../middlewares/seller-middlewares')

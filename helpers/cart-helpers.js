@@ -5,7 +5,7 @@ const { reject } = require('bcrypt/promises');
 const collection = require('../config/collection');
 const res = require('express/lib/response');
 const { ObjectId } = require('mongodb');
-const { enabled } = require('../app');
+// const { enabled } = require('../app');
 
 module.exports={
     emptyCart: (userId)=>{

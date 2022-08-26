@@ -1,0 +1,77 @@
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="section-title">
+                        <h4>New products</h4>
+                    </div>
+                </div>
+                {{!-- <div class="col-lg-8 col-md-8">
+                    <ul class="filter__controls">
+                        <li class="active" data-filter="*">All</li>
+                        <li data-filter=".women">Women’s</li>
+                        <li data-filter=".men">Men’s</li>
+                        <li data-filter=".kid">Kid’s</li>
+                        <li data-filter=".accessories">Accessories</li>
+                        <li data-filter=".cosmetic">Cosmetics</li>
+                    </ul>
+                </div> --}}
+            </div>
+            <div class=" " id="products" style=" 
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    white-space: nowrap;
+      display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;"
+    > 
+                {{!-- <div class="row property__gallery"
+                    style=" display: flex; padding: 20px;overflow-x: scroll;overflow-y: hidden;">
+                    {{#each products}}
+                    <div class=" col-6  col-sm-4 col-md-3 col-lg-2  ">
+                        <div class="product-grid   ">
+                            <div class="product-image men"  style="width: 100%;overflow: hidden;white-space: nowrap;">
+                                <a href="/product/details/{{this.products._id}}" class="image ">
+                                    <img src="/product-images/{{this.products._id}}(1).jpg" class="rounded-lg mt-3">
+                                </a>
+                                <ul class="product-links">
+                                    {{!-- <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li> --}}
+                                    {{!-- <li> <input type="button"><i class="fa fa-heart"></i></a></li> --}}
+                                    <li> <button onclick="addToWishlist('{{this.products._id}}')" class="btn mt-3">
+                                            {{!-- <i class="fa fa-heart"></i> --}}
+                                            <i class="bi bi-heart"></i>
+                                        </button></li>
+
+                                    {{!-- <li><a href="#"><i class="fa fa-random"></i></a></li> --}}
+                                </ul>
+                            </div>
+                            <div class=" " style="width: 100%;overflow: hidden;white-space: nowrap;">
+                                <h6 class=" mt-1  fs-6 fw-bold p-0"><a class="text-dark "
+                                        href="#">{{this.products.brandName}}</a></h6>
+                                <div>
+                                    <p class="p-0 m-0">
+
+                                        <a class="text-dark m-0 " style="overflow-x: hidden ;"
+                                            href="#">{{this.products.title}}</a>
+                                    </p>
+
+                                </div>
+                                <div class="d-flex" style="overflow-x: hidden ;">
+                                    {{!-- <div class="price fw-bold opacity-75"></div> --}}
+                                    <p class="price  opacity-75">Rs.{{this.products.discountPrice}}</p>
+
+                                    {{#if this.products.discount}}
+                                    &nbsp <p><s> Rs.{{this.products.price}}</s></p>&nbsp
+                                    <p class="text-success">({{this.products.discount}}%OFF)</p>
+                                    {{/if}}
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                   each
+                </div> --}}
+            </div>

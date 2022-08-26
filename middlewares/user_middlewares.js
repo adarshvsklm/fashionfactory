@@ -1,24 +1,24 @@
 const express = require('express');
-const { redirect } = require('express/lib/response');
+// const { redirect } = require('express/lib/response');
 const cli = require('nodemon/lib/cli');
 var router = express.Router();
 const userhelpers = require('../helpers/user-helpers')
-// require('dotenv').config();
+require('dotenv').config();
 // const fast2sms = require('fast-two-sms')
 // const config = require('../config/api');
-const { response } = require('../app');
-const otphelpers = require('../helpers/otphelpers');
+// const { response } = require('../app');
+
 const sellerHelpers = require('../helpers/seller-helpers');
 // const client = require('twilio')(config.accountSID, config.authToken)
-const accountSID=process.env.TWILIO_ACCOUNT_SID
-const serviceID=process.env.TWILIO_SERVICE_ID
-const authToken=process.env.TWILIO_AUTH_TOKEN
-const client = require('twilio')(accountSID, authToken)
+// const accountSID=process.env.TWILIO_ACCOUNT_SID
+// const serviceID=process.env.TWILIO_SERVICE_ID
+// const authToken=process.env.TWILIO_AUTH_TOKEN
+// const client = require('twilio')(accountSID, authToken)
 let filterResult, cartDetails, orderid, gender, SearchResult, searchKeyword
 
 
 const Razorpay = require('razorpay');
-const { use } = require('../routes/users');
+// const { use } = require('../routes/users');
 
 var instance = new Razorpay({
   key_id:   process.env.RAZORPAY_ID,
@@ -132,23 +132,23 @@ module.exports = {
 
     res.render('users/varification', { user: req.session.user })
   },
-  postVerification: async (req, res) => {
-    console.log(req.body);
-    let otp = req.body.otp
-    await client.verify.services(serviceID)
-      .verificationChecks
-      .create({ to: `+91${req.session.ph_number}`, code: otp })
-      .then((verificationChecks) => {
-        console.log(verificationChecks.status)
-        if (verificationChecks.status == 'approved') {
-          let verified=true
-          userhelpers.doSignup(req.body,verified)
-          res.redirect('/login')
-        } else {
-          res.redirect('/signup')
-        }
-      });
-  },
+  // postVerification: async (req, res) => {
+  //   console.log(req.body);
+  //   let otp = req.body.otp
+  //   await client.verify.services(serviceID)
+  //     .verificationChecks
+  //     .create({ to: `+91${req.session.ph_number}`, code: otp })
+  //     .then((verificationChecks) => {
+  //       console.log(verificationChecks.status)
+  //       if (verificationChecks.status == 'approved') {
+  //         let verified=true
+  //         userhelpers.doSignup(req.body,verified)
+  //         res.redirect('/login')
+  //       } else {
+  //         res.redirect('/signup')
+  //       }
+  //     });
+  // },
   logout: (req, res) => {
     req.session.user = null
     res.redirect('/login')
@@ -406,7 +406,7 @@ module.exports = {
 
   filterProducts: (req, res) => {
 
-    // console.log(req.body.sort);
+    console.log(req.body);
 
     let a = req.body
     let price = parseInt(a.price)
@@ -423,12 +423,12 @@ module.exports = {
         res.json({ status: true })
       }
       if (req.body.sort == 'rating') {
-        filterResult.sort((a, b) => {
+        filterResult.sort((a, b) => {    
           return b.products.rating - a.products.rating
         })
         res.json({ status: true })
       }
-      if (req.body.sort == 'lh') {
+      if (req.body.sort == 'lh') {    
         filterResult.sort((a, b) => {
           return a.products.price - b.products.price
         })

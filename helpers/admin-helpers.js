@@ -153,6 +153,7 @@ module.exports = {
     adminDetails: () => {
         return new Promise(async (resolve, reject) => {
             let admin = await db.get().collection(collection.mainCollection).findOne({ role: 'admin' })
+            
             resolve(admin)
         })
     },
