@@ -246,7 +246,7 @@ $('input[name=price]').change(function () {
 
 ////////////////////
 
-$('input[name=brandName]').change(function () {
+$('input[name=brandName1]').change(function () {
 // $('#brandName1').on('change', function () {
   $.ajax({
     url: '/products/filter',
@@ -342,6 +342,56 @@ $('input[name=Sprice]').change(function () {
     },
   });
 });
+
+/////////////////////////
+
+$('input[name=SbrandName1]').change(function () {
+  $.ajax({
+    url: '/search/result/',
+    method: 'post',
+    data: $('#searchForm1').serialize(),
+    success: (isResult) => {
+      if (isResult) {
+        // window.location.reload()
+        // $('#products').load('/products/filter');
+        $('#products').load(location.href + ' #products');
+      }
+    },
+  });
+});
+
+$('#SsortMenu1').on('change', function () {
+  // alert( this.value );
+  $.ajax({
+    url: '/search/result/',
+    method: 'post',
+    data: $('#searchForm1').serialize(),
+    success: (isResult) => {
+      if (isResult) {
+        // window.location.reload()
+        // $('#products').load('/products/filter');
+        $('#products').load(location.href + ' #products');
+      }
+    },
+  });
+});
+
+$('input[name=Sprice1]').change(function () {
+  $.ajax({
+    url: '/search/result/',
+    method: 'post',
+    data: $('#searchForm1').serialize(),
+    success: (isResult) => {
+      if (isResult) {
+        // alert("jsakdjs")
+        // window.location.reload()
+        // $('#products').load('/products/filter');
+        $('#products').load(location.href + ' #products');
+      }
+    },
+  });
+});
+////////////////////////
 
 //  -----search----
 

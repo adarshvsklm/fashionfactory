@@ -118,10 +118,10 @@
                         id="product_id">
 
 
-                    <input type="submit" class="btn btn-success mt-4 col-6" value="ADD TO CART">
+                    <input type="submit" class="btn btn-success mt-4 col-6 " value="ADD TO CART">
 
             </form>
-            <div class="">
+            <div class="mt-5">
                 <p class="fs-4"> Description</p>
                 <p class=" ">{{product.products.description}}</p>
             </div>
@@ -131,8 +131,8 @@
 
 
     <section class="container">
-        <div class="container card col-3 text-center  float-start border-0">
-            <h1 class="float-end  text-success">{{product.products.rating}} / 5</h1><br>
+        <div class="container card col-12 col-md-3  text-center  float-start border-0">
+            <h4 class="float-end  text-success">{{product.products.rating}} / 5</h4>
             <i class="bi bi-star-fill fs-5"></i>
 
             <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"
