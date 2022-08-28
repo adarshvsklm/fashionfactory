@@ -397,7 +397,7 @@ module.exports = {
   },
   searchResult: (req, res) => {
     // console.log(false);
-    // console.log(req.body);
+    console.log(req.body.search);
     if (req.body.search) {
       searchKeyword = req.body.search;
       userhelpers.search(searchKeyword).then((result) => {
@@ -434,8 +434,7 @@ module.exports = {
 
       ///////////////////
 
-      // console.log(searchKeyword);
-      userhelpers
+       userhelpers
         .filterProducts(filter, gender, price, searchKeyword)
         .then((response) => {
           // console.log(response);
@@ -445,19 +444,19 @@ module.exports = {
           if (req.body.sort == 'Sort') {
             res.json({ status: true });
           }
-          if (req.body.sort == 'rating') {
+          if (req.body.sort == 'rating' || req.body.sort1 == 'rating') {
             SearchResult.sort((a, b) => {
               return b.products.rating - a.products.rating;
             });
             res.json({ status: true });
           }
-          if (req.body.sort == 'lh') {
+          if (req.body.sort == 'lh' || req.body.sort1 == 'lh') {
             SearchResult.sort((a, b) => {
               return a.products.price - b.products.price;
             });
             res.json({ status: true });
           }
-          if (req.body.sort == 'hl') {
+          if (req.body.sort == 'hl' || req.body.sort1 == 'hl') {
             SearchResult.sort((a, b) => {
               return b.products.price - a.products.price;
             });

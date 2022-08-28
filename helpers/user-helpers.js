@@ -679,7 +679,7 @@ module.exports = {
                         }
                     ]).toArray()
                     // console.log(3984989489348934893489394394398493);
-                    // console.log(result);
+                    console.log( 'wrong');
                     resolve(result)
                 } else {
                     console.log('gender');
@@ -765,7 +765,7 @@ module.exports = {
                         }
                     ]).toArray()
                     // console.log(3984989489348934893489394394398493);
-                    // console.log(result);
+                    console.log(result);
                     resolve(result)
                 } else {
                     let result = await db.get().collection(collection.mainCollection)

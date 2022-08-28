@@ -1,9 +1,9 @@
-<div class="container-fluid ">
+<div class=" container-fluid ">
 
 
-    <form method="post" id="brandFilter1">
+    <form method="post" id="searchForm1">
         <!-- Button trigger modal -->
-        <div class="d-flex justify-content-between fixed-top mt-5 bg-white">
+        <div class="d-flex justify-content-between  mt-5 bg-white">
             <button type="button" class="btn  btn-outline-secondary d-md-none" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop">
                 BRANDS
@@ -19,13 +19,13 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <input class="form-check-input ms-2 filter" type="checkbox" id="brandName1"
-                                name="brandName1" value="" hidden checked>
+                            <input class="form-check-input ms-2 filter" type="checkbox" id="SbrandName1"
+                                name="SbrandName1" value="" hidden checked>
 
                             {{!-- <p class="fs-6">BRANDS</p> --}}
                             {{#each response}}
                             <div class="form-check ms-2">
-                                <input class="form-check-input " type="checkbox" id="brandName1" name="brandName1"
+                                <input class="form-check-input " type="checkbox" id="SbrandName1" name="SbrandName1"
                                     value="{{this._id.brandName}}">
                                 <p>
                                     <label class="form-check-label ms-4 " for="flexCheckChecked">
@@ -47,12 +47,12 @@
 
 
             <button type="button" class="btn  btn-outline-secondary d-md-none" data-bs-toggle="modal"
-                data-bs-target="#price1">
+                data-bs-target="#Sprice1">
                 Price
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="price1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            <div class="modal fade" id="Sprice1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -62,48 +62,48 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="price" name="price1" hidden checked
+                                <input class="form-check-input" type="radio" id="Sprice" name="Sprice1" hidden checked
                                     value="50000">
 
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="price" name="price1" value="200">
+                                <input class="form-check-input" type="radio" id="Sprice" name="Sprice1" value="200">
                                 <label class="form-check-label" for="exampleRadios1">
                                     Under Rs.200
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="price" name="price1" value="400">
+                                <input class="form-check-input" type="radio" id="Sprice" name="Sprice1" value="400">
                                 <label class="form-check-label" for="exampleRadios2">
                                     Under Rs.400
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="price" name="price1" value="600">
+                                <input class="form-check-input" type="radio" id="Sprice" name="Sprice1" value="600">
                                 <label class="form-check-label" for="exampleRadios1">
                                     Under Rs.600
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="price" name="price1" value="700">
+                                <input class="form-check-input" type="radio" id="Sprice" name="Sprice1" value="700">
                                 <label class="form-check-label" for="exampleRadios1">
                                     Under Rs.700
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="price" name="price1" value="1000">
+                                <input class="form-check-input" type="radio" id="Sprice" name="Sprice1" value="1000">
                                 <label class="form-check-label" for="exampleRadios1">
                                     Under Rs.1000
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="price" name="price1" value="1500">
+                                <input class="form-check-input" type="radio" id="Sprice" name="Sprice1" value="1500">
                                 <label class="form-check-label" for="exampleRadios1">
                                     Under Rs.1500
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="price" name="price1" value="2500">
+                                <input class="form-check-input" type="radio" id="Sprice" name="Sprice1" value="2500">
                                 <label class="form-check-label" for="exampleRadios1">
                                     Under Rs.2500
                                 </label>
@@ -116,7 +116,7 @@
                 </div>
             </div>
             <select class="form-select float-end filter d-md-none" aria-label="Default select example"
-                style="width: 20%;" name="sort1" id="sortMenu1">
+                style="width: 20%;" name="sort1" id="SsortMenu1">
                 <option selected>Sort</option>
                 <option value="rating">Customer Rating</option>
                 <option value="hl">Price : High To Low</option>
@@ -126,12 +126,12 @@
     </form>
 
 
-    <form method="post" id="brandFilter">
+    <form method="post" id="searchForm">
         <div class="">
             <div class="row">
                 <div class="float-end d-none d-md-block">
                     <select class="form-select float-end filter" aria-label="Default select example" style="width: 20%;"
-                        name="sort" id="sortMenu">
+                        name="sort" id="SsortMenu">
                         <option selected>Sort</option>
                         <option value="rating">Customer Rating</option>
                         <option value="hl">Price : High To Low</option>
@@ -148,13 +148,13 @@
 
 
                 <div class="  col-2 d-none d-md-block">
-                    <input class="form-check-input ms-2 filter" type="checkbox" id="flexCheckChecked" name="brandName"
+                    <input class="form-check-input ms-2 filter" type="checkbox" id="flexCheckChecked" name="SbrandName"
                         value="" hidden checked>
 
                     <p class="fs-6">BRANDS</p>
                     {{#each response}}
                     <div class="form-check ms-2">
-                        <input class="form-check-input " type="checkbox" id="brands" name="brandName"
+                        <input class="form-check-input " type="checkbox" id="brands" name="SbrandName"
                             value="{{this._id.brandName}}">
                         <p>
                             <label class="form-check-label ms-4 " for="flexCheckChecked">
@@ -168,48 +168,48 @@
 
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" id="price" name="price" hidden checked
+                        <input class="form-check-input" type="radio" id="Sprice" name="Sprice" hidden checked
                             value="50000">
 
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" id="price" name="price" value="200">
+                        <input class="form-check-input" type="radio" id="Sprice" name="Sprice" value="200">
                         <label class="form-check-label" for="exampleRadios1">
                             Under Rs.200
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" id="price" name="price" value="400">
+                        <input class="form-check-input" type="radio" id="Sprice" name="Sprice" value="400">
                         <label class="form-check-label" for="exampleRadios2">
                             Under Rs.400
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" id="price" name="price" value="600">
+                        <input class="form-check-input" type="radio" id="Sprice" name="Sprice" value="600">
                         <label class="form-check-label" for="exampleRadios1">
                             Under Rs.600
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" id="price" name="price" value="700">
+                        <input class="form-check-input" type="radio" id="Sprice" name="Sprice" value="700">
                         <label class="form-check-label" for="exampleRadios1">
                             Under Rs.700
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" id="price" name="price" value="1000">
+                        <input class="form-check-input" type="radio" id="Sprice" name="Sprice" value="1000">
                         <label class="form-check-label" for="exampleRadios1">
                             Under Rs.1000
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" id="price" name="price" value="1500">
+                        <input class="form-check-input" type="radio" id="Sprice" name="Sprice" value="1500">
                         <label class="form-check-label" for="exampleRadios1">
                             Under Rs.1500
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" id="price" name="price" value="2500">
+                        <input class="form-check-input" type="radio" id="Sprice" name="Sprice" value="2500">
                         <label class="form-check-label" for="exampleRadios1">
                             Under Rs.2500
                         </label>
